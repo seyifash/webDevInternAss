@@ -22,77 +22,43 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+   const initSlider = () => {
+    const frame = document.querySelector(".gallery .frame");
+    const numSlides = Math.ceil(frame.scrollWidth / frame.clientWidth);
+    console.log(numSlides)
+    const slidePanel = $('.slidePanel');
 
-    // the slider 
+    for (let i = 0; i < numSlides; i++) {
+        let button = $('<div></div>').addClass('outer').attr('id', `scroll${i + 1}`);
+        let inner = $('<div></div>').addClass('inner');
+        button.append(inner);
 
-    const initSlider = () => {
-        const frame = document.querySelector(".gallery .frame");
-        const slideButtons = document.querySelectorAll(".slidePanel .outer");
-        console.log(frame.scrollWidth)
-        console.log(frame.clientWidth)
-    
-        const maxScrollLeft = frame.scrollWidth - frame.clientWidth;
+        // Add the active class to the first button
+        if (i === 0) {
+            button.addClass('active');
+            inner.addClass('active2');
+        }
 
-        console.log(frame)
-        console.log(slideButtons);
-        console.log(maxScrollLeft);
-
-
-        slideButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                console.log(button);
-
-
-                // Remove the active and active2 class from all other divs in the slide panel first 
-                slideButtons.forEach(btn => {
-                    btn.classList.remove('active')
-                    const inner = btn.querySelector('.inner');
-                    if (inner) {
-                        inner.classList.remove('active2');
-                    }
-                });
-
-                // Add the active class to the one that is being clicked on
-                button.classList.add('active')
-                const innerDiv = button.querySelector('.inner');
-
-                if (innerDiv) {
-                    innerDiv.classList.add('active2');
-                }
-
-                let scrollAmount = 0;
-                if(button.id === 'scroll1'){
-                    console.log('i am ', frame.scrollLeft)
-                   if(frame.scrollLeft === maxScrollLeft){
-                    scrollAmount =  frame.scrollLeft * -1
-                    } else if(frame.scrollLeft < maxScrollLeft) {
-                        scrollAmount =  frame.clientWidth * -1
-                    }
-                }else if (button.id === 'scroll2'){
-                    console.log('i am here ', frame.scrollLeft)
-                    if(frame.scrollLeft > frame.clientWidth){
-                        scrollAmount =  frame.clientWidth * -1
-                    } else if(frame.scrollLeft < frame.clientWidth){
-                    scrollAmount = frame.clientWidth * 1
-
-                    }
-                }
-                else if(button.id === 'scroll3') {
-                    if(frame.scrollLeft === frame.clientWidth) {
-                        console.log("here")
-                        scrollAmount = frame.clientWidth * 1
-                    } else if(frame.scrollLeft === 0){
-                    scrollAmount = (frame.clientWidth + frame.clientWidth) * 1
-                    }
-                }
-                /*const scrollAmount = frame.clientWidth * direction;*/
-                frame.scrollBy({ left: scrollAmount, behavior: "smooth"})
-            })
-        });
-        
+        slidePanel.append(button);
     }
-    window.addEventListener("load", initSlider);
 
+    const updateActiveButton = () => {
+        let currentIndex = Math.round(frame.scrollLeft / frame.clientWidth);
+        console.log(currentIndex);
+
+        $('.slidePanel .outer').removeClass('active');
+        $('.slidePanel .inner').removeClass('active2');
+        $(`.slidePanel .outer:eq(${currentIndex})`).addClass('active');
+        $(`.slidePanel .outer:eq(${currentIndex}) .inner`).addClass('active2');
+    };
+
+    frame.addEventListener('scroll', updateActiveButton);
+
+    updateActiveButton();
+   }
+
+   window.addEventListener("load", initSlider);
+    
     const imageCnt = document.querySelectorAll('.img-cnt .ct1');
     const image = document.querySelector('.image-slide img');
     console.log(imageCnt);
