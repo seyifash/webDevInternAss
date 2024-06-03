@@ -411,7 +411,8 @@ button:disabled {
 .section-2 .pt2-1 .slidePanel {
     margin-top: 40px;
     display: flex;
-    width: 100px;
+    min-width: 100px;
+    max-width: 170px;
     justify-content: space-between;
 }
 
@@ -420,7 +421,7 @@ button:disabled {
 .section-2 .pt2-1 .slidePanel .outer {
     width: 25px;
     height: 25px;
-    border: 1px solid #fff;
+    border: 1px solid transparent;
     border-radius: 50%;
     padding: 8px;
 }
@@ -476,6 +477,7 @@ button:disabled {
     width: 20%;
     text-align: left;
 }
+
 .section-3 .cards .card1 svg {
     height: 60px;
 }
@@ -502,7 +504,7 @@ button:disabled {
     width: 100%;
     background: #fff;
     height: 700px;
-    max-height: 700px;
+    max-height: 800px;
     text-align: center;
     align-items: center;
     padding: 40px 100px;
@@ -620,6 +622,14 @@ button:disabled {
     background: #fff;
 }
 
+.section-5 .sm-crd .smcd:hover{
+box-shadow: 0px 7px 25px rgba(0, 0, 0, 0.2);
+
+}
+.section-5 .sm-crd .smcd:last-child {
+    margin-right: 0px;
+}
+
 .section-5 .sm-crd .smcd img {
     width: 30px;
 }
@@ -712,120 +722,486 @@ footer img {
 }
 
 
-/*@media  (max-width: 1340px){
-    .section-2 {
-        padding-left: 100px;
+@media (max-width: 1040px){
+    .section-2 .pt2-1 .gallery {
+        width: 100%;
+        max-width: 1000px;
+        overflow-x: auto;
     }
-    .section-2 .pt2-1 {
-        padding-right: 100px;
+    .section-2 {
+        min-height: 500px;
+    }
+    .section-2 .pt2-0 .service h2 {
+        width: 35%;
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+    }
+    .section-2 .pt2-0 .service p {
+        width: 60%;
+        margin-right: 0px;
+        padding-right: 60px;
+        font-size: 0.75rem;
+        line-height: 1.5em;
+    }
+    .section-2 .pt2-1 .gallery .frame li {
+        width: 269px;
+    }
+    .section-4 .image-slide .img-cnt .ct1 span, .section-4 .image-slide .img-cnt .ct1 span strong {
+        font-size: 0.75rem;
+        line-height: 1.2rem;
+    }
+    .section-5 .sm-crd .smcd {
+        width: 24%;
+    }
+    .section-5 .sm-crd .smcd h2 {
+        font-size: 2.2rem;
+        line-height: 4.5rem;
+    }
+    .section-5 .sm-crd .smcd span {
+        font-size: 0.85rem;
+    }
+    .section .form  {
+        position: absolute;
+    }
+    
+    .section .form form {
+        width: 70%;
+    }
+    form .form-row .input-data  input {
+        font-size: 16px;
+    }
+    .section .form form .checkbox label {
+        font-size: 1rem;
+    }
+    section .form form button {
+        font-size: 1rem;
+        height: 40px;
+    }
+    
+}
+
+@media (max-width: 990px){
+    .section-1 {
+        padding: 60px 60px;
+    }
+    .section-1 .pt1-0 {
+        display: flex;
+        padding-right: 20px;
+    }
+    .section-1 .pt1-0 h3 {
+        font-size: 1.2rem;
+    }
+    .section-1 .pt1-0 h1 {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+    .section-2 {
+        padding: 30px 60px;
+    }
+    .section-2 .pt2-0 .service h2 {
+        width: 40%;
+    }
+    .section-2 .pt2-0 .service p {
+        width: 50%;
+        padding-right: 30px;
     }
     .section-2 .pt2-1 .gallery .frame li {
         width: 350px;
     }
-}
-@media  (max-width: 1025px){
-   .section-2 {
-        padding-left: 93px;
+    .section-3 {
+        padding: 60px;
     }
-    .section-2 .pt2-1 {
-        padding-right: 93px;
+    .section-3 .cards {
+        display: flex;
+        width: 100%;
+        padding: 0px 0px;
+        justify-content: center;
+    }
+    .section-3 h2 {
+        font-size: 1.3rem;
+    }
+    .section-3 .cards .card1 svg {
+        height: 40px;
+    }
+    .section-3 .cards .card1 {
+        width: 22%;
+        margin-right: 20px;
+    }
+    .section-3 .cards .card1 .cnt span {
+        padding-top: 0px;
+        font-size: 0.65rem;
+    }
+    .section-3 .cards .card1 .cnt p {
+        font-size: 0.65rem;
+        line-height: 1.2rem;
+    }
+    .section-4 {
+        width: 100%;
+        background: #fff;
+        height: 700px;
+        max-height: 800px;
+        padding: 30px 60px;
+        padding-top: 0px;
+    }
+    .section-4 .image-slide .img {
+        width: 65%;
+    }
+    .section-4 .image-slide .img-cnt {
+        width: 30%;
+    }
+    .section-4 .image-slide .img-cnt .ct1 span {
+        line-height: 1.4rem;
+    }
+    .section-4 .image-slide .img-cnt .ct1 p {
+        margin-top: 10px;
+    }
+    .section-5 {
+        padding: 60px 60px;
+    }
+    .section-5 .sm-crd .smcd h2 {
+        font-size: 2rem;
+        line-height: 4rem;
+    }
+    .section-5 h5 {
+        font-size: 1rem;
+        line-height: 2.7rem;
+    }
+    .section-5 .sm-crd .smcd img {
+        width: 25px;
+    }
+    .section-5 .sm-crd .smcd {
+        padding: 30px 10px;
+    }
+    .section-6 p {
+        text-align: center;
+        max-width: 70%;
+    }
+    .section-6 img {
+        position: absolute;
+        top: 48%;
+        left: 24%;
+        width: 40px;
+    }
+}
+@media (max-width: 799px){
+    .section-1 .pt1-0 h3 {
+        line-height: 3rem;
+    }
+    .section-1 .pt1-0 h1 {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+    }
+    .section-1 .pt1-0 p {
+        font-size: 0.75rem;
+        line-height: 1.3rem;
+    }
+    .section-2 .pt2-0 .service p {
+        padding-right: 10px;
     }
     .section-2 .pt2-1 .gallery .frame li {
-        width: 270px;
+        width: 320px;
     }
-}
-@media  (max-width: 860px){
-    .section-2 {
-        padding-left: 50px;
+    .section-3 .cards .card1 {
+        width: 20%;
     }
-    .section-2 .pt2-1 {
-        padding-right: 50px;
+    .section-4 .image-slide .img-cnt .ct1 p {
+        margin-top: 5px;
     }
-    .section-2 .pt2-1 .gallery .frame li {
-        width: 237px;
+    .section-5 .sm-crd .smcd img {
+        width: 20px;
     }
-}
-
-@media  (max-width: 820px){
-    .section-2 {
-        padding-left: 50px;
+    .section-5 .sm-crd .smcd span {
+        font-size: 0.75rem;
     }
-    .section-2 .pt2-1 {
-        padding-right: 50px;
+    .section-5 .sm-crd .smcd h2 {
+        font-size: 1.5rem;
+        line-height: 3.5rem;
     }
-    .section-2 .pt2-1 .gallery .frame li {
-        width: 225px;
+    .section-5 .sm-crd .smcd {
+        padding: 20px 10px;
+        padding-top: 50px;
     }
-}
-
-@media  (max-width: 799px){
-    .section-2 {
-        padding-left: 40px;
+    .section-6 h5 {
+        font-size: 1rem;
+        line-height: 2.3rem;
     }
-    .section-2 .pt2-1 {
-        padding-right: 40px;
+    .section-6 h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
     }
-    .section-2 .pt2-1 .gallery .frame li {
-        width: 220px;
+    .section-6 p {
+        max-width: 80%;
+        font-size: 0.75em;
+        line-height: 1.2rem;
     }
-}
-
-@media  (max-width: 431px){
-    .section-2 .pt2-1 .gallery .frame {
-        gap: 7px;
+    .section-6 span {
+        font-size: 0.65rem;
     }
-    .section-2 .pt2-1 .gallery .frame li {
-        width: 160px;
-        height: auto;
-        border: 1px solid purple;
+    .section-6 span strong {
+        font-size: 0.85rem;
     }
-    .section-2 .pt2-1 .gallery .frame .fr {
-        height: 300px;
+    .section .form form {
+        width: 60%;
     }
-    .section-2 .pt2-1 .gallery .frame li .content {
-        height: 300px;
+    form .form-row .input-data  input {
+        font-size: 15px;
     }
-    .section-2 .pt2-1 .gallery .frame li .content p {
-        font-family: var(--poppins);
-        font-size: 8px;
-        line-height: 1rem;
+    .section .form form .checkbox label {
+        font-size: 0.95rem;
     }
-    .section-2 .pt2-1 .gallery .frame li .content .btn {
-        color: var(--primary-color);
-        font-size: 8px;
-        padding: 4px 7px;
-        font-weight: 400;
+    section .form form button {
+        font-size: 1rem;
+        height: 40px;
     }
     
 }
 
-@media  (max-width: 540px){
-    .section-2 {
-        padding-left: 20px;
+@media (max-width: 550px){
+    .section-1 {
+        padding: 30px 20px;
     }
-    .section-2 .pt2-1 {
-        padding-right: 20px;
+    .section-1 .pt1-0 h1 {
+        font-size: 1rem;
+        line-height: 1.6rem;
     }
-    .section-2 .pt2-1 .gallery .frame li {
-        width: 123px;
-        height: auto;
+    .section-1 .pt1-0 h3 {
+        font-size: 0.85rem;
+        line-height: 2rem;
     }
-    .section-2 .pt2-1 .gallery .frame .fr {
-        height: 220px;
-    }
-    .section-2 .pt2-1 .gallery .frame li .content {
-        height: 220px;
-    }
-    .section-2 .pt2-1 .gallery .frame li .content p {
-        font-family: var(--poppins);
-        font-size: 8px;
+    .section-1 .pt1-0 p {
+        padding-top: 10px;
+        font-size: 0.65rem;
         line-height: 1rem;
     }
-    .section-2 .pt2-1 .gallery .frame li .content .btn {
-        color: var(--primary-color);
-        font-size: 8px;
-        padding: 3px 5px;
-        font-weight: 400;
+    .section-1 .pt1-0 .btn {
+        padding: 10px;
+        width: 90px;
+        font-size: 0.5rem;
+        padding: 7px 7px;
+        margin-top: 30px;
     }
-    
-}*/
+    .section-2 {
+        padding: 30px 20px;
+    }
+    .section-2 .pt2-0 h4 {
+        font-size: 0.85rem;
+    }
+    .section-2 .pt2-0 .service h2 {
+        width: 35%;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .section-2 .pt2-0 .service p {
+        width: 60%;
+        font-size: 0.6rem;
+    }
+    .section-2 .pt2-1 .gallery .frame li {
+        width: 245px;
+    }
+    .section-2 .pt2-1 .gallery .frame li .fr {
+        height: 400px;
+    }
+    .section-2 .pt2-1 .gallery .frame li .content {
+        height: 400px;
+    }
+    .section-3 .cards .card1 svg {
+        height: 30px;
+    }
+    .section-3 {
+        padding: 60px 20px;
+    }
+    .section-3 h4 {
+        font-size: 0.85rem;
+        line-height: 2rem;
+    }
+    .section-3 h2 {
+        font-size: 1.1rem;
+    }
+    .section-3 .cards .card1 .cnt span {
+        font-size: 0.5rem;
+    }
+    .section-3 .cards .card1 .cnt p {
+        font-size: 0.5rem;
+        line-height: 1rem;
+    }
+    .section-4 {
+        padding: 10px 20px;
+        padding-top: 0px;
+    }
+    .section-4 h4 {
+        font-size: 0.85rem;
+        line-height: 2rem;
+    }
+    .section-4 h2 {
+        font-size: 1.1rem;
+    }
+    .section-4 .image-slide .img-cnt .ct1 {
+        padding: 10px 10px;
+    }
+    .section-4 .image-slide .img-cnt .ct1 p {
+        font-size: 0.65rem;
+    }
+    .section-4 .image-slide .img {
+        width: 60%;
+    }
+    .section-4 .image-slide .img-cnt {
+        width: 35%;
+    }
+    .section-4 .image-slide .img-cnt .ct1 span {
+        font-size: 0.65rem;
+        line-height: 1rem;
+    }
+    .section-5 {
+        padding: 60px 20px;
+    }
+    .section-5 .sm-crd .smcd h2 {
+        font-size: 1.2rem;
+        line-height: 3rem;
+    }
+    .section-5 .sm-crd .smcd {
+        margin-right: 15px;
+        height: 170px;
+        padding: 15px 10px;
+    }
+    .section-5 .sm-crd .smcd span {
+        font-size: 0.6rem;
+    }
+    .section-6 p {
+        font-size: 0.65em;
+        line-height: 1.1rem;
+    }
+    .section-6 {
+        padding: 40px 20px;
+    }
+    .section-6 h5 {
+        font-size: 0.75rem;
+        line-height: 2.3rem;
+    }
+    .section-6 h3 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    footer {
+        height: 200px;
+    }
+    .section .form form {
+        width: 80%;
+    }
+    form .form-row .input-data  input {
+        font-size: 13px;
+    }
+    .section .form form .checkbox label {
+        font-size: 0.85rem;
+    }
+    section .form form button {
+        font-size: 0.95rem;
+        height: 40px;
+    }
+}
+
+@media (max-width: 477px){
+    .section-1 .pt1-0 h3 {
+        font-size: 0.6rem;
+        line-height: 1.5rem;
+    }
+    .section-1 .pt1-0 h1 {
+        font-size: 0.85rem;
+        line-height: 1rem;
+    }
+    .section-1 .pt1-0 p {
+        font-size: 0.5rem;
+    }
+    .section-1 .pt1-0 .btn {
+        padding: 10px;
+        width: 70px;
+        font-size: 0.4rem;
+        padding: 7px 3px;
+        margin-top: 30px;
+    }
+    .section-2 .pt2-0 .service h2 {
+        width: 45%;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .section-2 .pt2-0 .service p {
+        width: 50%;
+        font-size: 0.5rem;
+    }
+    .section-2 .pt2-1 .gallery .frame li {
+        width: 370px;
+    }
+
+        .section-4 .image-slide .img-cnt {
+            width: 38%;
+        }  
+        .section-5 {
+            padding: 40px 20px;
+            min-height: 350px;
+        }
+        .section-5 .sm-crd .smcd img {
+            width: 15px;
+        }
+        .section-5 .sm-crd .smcd h2 {
+            font-size: 0.95rem;
+            line-height: 2.5rem;
+        }
+        .section-5 .sm-crd .smcd span {
+    font-size: 0.5rem;
+}
+    .section-5 .sm-crd .smcd {
+        margin-right: 6px;
+        height: 130px;
+    }
+
+    .section-6 h3 {
+        font-size: 0.6rem;
+    }
+    .section-6 h3 {
+       font-size: 0.85rem;
+    }
+    .section-6 h3 {
+        font-size: 0.65rem;
+    }
+    .section-6 span {
+        font-size: 0.5rem;
+    }
+    .section-6 span strong {
+        font-size: 0.65rem;
+    }
+    .section .form form {
+        width: 80%;
+    }
+    form .form-row .input-data  input {
+        font-size: 13px;
+    }
+    .section .form form .checkbox label {
+        font-size: 0.85rem;
+    }
+    section .form form button {
+        font-size: 0.95rem;
+        height: 40px;
+    }
+
+}
+
+@media (max-width: 380px){
+    .section-4 .image-slide .img-cnt .ct1 p {
+        font-size: 0.55rem;
+    }
+    .section-2 .pt2-1 .gallery .frame li {
+        width: 330px;
+    }
+    .section .form form {
+        width: 80%;
+    }
+    form .form-row .input-data  input {
+        font-size: 13px;
+    }
+    .section .form form .checkbox label {
+        font-size: 0.85rem;
+    }
+    section .form form button {
+        font-size: 0.95rem;
+        height: 40px;
+    }
+}
