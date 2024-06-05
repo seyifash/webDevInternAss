@@ -22,43 +22,116 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
-   const initSlider = () => {
-    const frame = document.querySelector(".gallery .frame");
-    const numSlides = Math.ceil(frame.scrollWidth / frame.clientWidth);
-    console.log(numSlides)
-    const slidePanel = $('.slidePanel');
+   
 
-    for (let i = 0; i < numSlides; i++) {
-        let button = $('<div></div>').addClass('outer').attr('id', `scroll${i + 1}`);
-        let inner = $('<div></div>').addClass('inner');
-        button.append(inner);
+   // section -2 image slider functionality 
+   const frame = document.querySelector('.slider-wrapper .frame');
+   const slider = document.querySelector('.slider')
+   const slidePanel = document.querySelector('.section-2 .slidePanel')
+   const li = document.querySelectorAll('.frame .item');
+   let totalWidth = 0;
+   let pagination;
+   let frameWidth = slider.clientWidth;
+   let imageWidth;
+   let currentIndex = 0;
+   let itemDisplay; 
+   let margin; 
 
-        // Add the active class to the first button
-        if (i === 0) {
-            button.addClass('active');
-            inner.addClass('active2');
-        }
-
-        slidePanel.append(button);
-    }
-
-    const updateActiveButton = () => {
-        let currentIndex = Math.round(frame.scrollLeft / frame.clientWidth);
-        console.log(currentIndex);
-
-        $('.slidePanel .outer').removeClass('active');
-        $('.slidePanel .inner').removeClass('active2');
-        $(`.slidePanel .outer:eq(${currentIndex})`).addClass('active');
-        $(`.slidePanel .outer:eq(${currentIndex}) .inner`).addClass('active2');
-    };
-
-    frame.addEventListener('scroll', updateActiveButton);
-
-    updateActiveButton();
+   if (screen.width > 900){
+       itemDisplay = 3
+       margin = 10;
+   } else if(screen.width < 900 && screen.width > 700){
+       itemDisplay = 2
+       margin = 7
+   } else if (screen.width < 700 ){
+       itemDisplay = 1
+       margin= 2;
    }
 
-   window.addEventListener("load", initSlider);
+
+   li.forEach((item, index) => {
+       console.log(slider.clientWidth)
+       const  div = slider.clientWidth / itemDisplay
+       const remainder = slider.clientWidth % itemDisplay;
+       const imgWidth = (div + remainder) - margin;
+
+       item.style.width = `${imgWidth}px`
+
+       totalWidth += item.offsetWidth;
+       let comp = getComputedStyle(item);
+       totalWidth += parseInt(comp.marginLeft);
+   })
+   imageWidth = totalWidth / li.length;
+   pagination = totalWidth / frameWidth
+   pagination = Math.round(pagination);
+
+   const createPagination = () =>{
+       for(let i = 0; i < pagination; i++){
+           const button = document.createElement('div')
+           button.classList.add('outer')
+           const inner = document.createElement('div');
+           inner.classList.add('inner');
+           button.appendChild(inner);
+
+           if(i === 0){
+               button.classList.add('active');
+               inner.classList.add('active2');
+           }
+
+           button.addEventListener('click', () => {
+               currentIndex = i;
+               updateSlider();
+           })
+           slidePanel.appendChild(button);
+       }
+   }
+
+   createPagination();
+
+
+   function updateSlider(){
+       const offset = -currentIndex * 100;
+       frame.style.transform  = `translateX(${offset}%)`;
+       const buttons = document.querySelectorAll('.slidePanel .outer');
+   
+       buttons.forEach((button, index) => {
+           if(index === currentIndex){
+               button.classList.add('active');
+               const inner = button.querySelector('.inner');
+               inner.classList.add('active2')
+           }else {
+               button.classList.remove('active');
+               const inner = button.querySelector('.inner');
+               inner.classList.remove('active2')
+           }
+       })
+   }
+
+   const updateActiveButton = () => {
+       currentIndex = Math.round(slider.scrollLeft / slider.clientWidth);
+   
+       const buttons = document.querySelectorAll('.slidePanel .outer');
+       const innerElements = document.querySelectorAll('.slidePanel .inner');
+   
+       buttons.forEach((button, index) => {
+           if (index === currentIndex) {
+               button.classList.add('active');
+               innerElements[index].classList.add('active2');
+           } else {
+               button.classList.remove('active');
+               innerElements[index].classList.remove('active2');
+           }
+       });
+   };
+
+   slider.addEventListener('scroll', updateActiveButton);
+   updateActiveButton();
+   
+   updateSlider();
+
+
     
+   // image with content functionality 
     const imageCnt = document.querySelectorAll('.img-cnt .ct1');
     const image = document.querySelector('.image-slide img');
     console.log(imageCnt);
