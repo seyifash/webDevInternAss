@@ -144,11 +144,11 @@ document.addEventListener('DOMContentLoaded', function(){
             cnt.classList.add('bgActive');
 
             if(cnt.id === '1'){
-                image.src = '/images/image.png'
+                image.src = 'images/image.png'
             }else if(cnt.id === '2'){
-                image.src = '/images/14.png';
+                image.src = 'images/14.png';
             }else if(cnt.id === '3'){
-                image.src = '/images/15.png'
+                image.src = 'images/15.png'
             }
         })
     })
