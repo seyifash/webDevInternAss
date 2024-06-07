@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
    li.forEach((item, index) => {
-       console.log(slider.clientWidth)
        const  div = slider.clientWidth / itemDisplay
        const remainder = slider.clientWidth % itemDisplay;
        const imgWidth = (div + remainder) - margin;
@@ -134,12 +133,9 @@ document.addEventListener('DOMContentLoaded', function(){
    // image with content functionality 
     const imageCnt = document.querySelectorAll('.img-cnt .ct1');
     const image = document.querySelector('.image-slide img');
-    console.log(imageCnt);
-    console.log(image);
 
     imageCnt.forEach((cnt) => {
         cnt.addEventListener('click', () => {
-            console.log(cnt);
 
             //remove the colored background
             imageCnt.forEach(ct => {
@@ -148,11 +144,11 @@ document.addEventListener('DOMContentLoaded', function(){
             cnt.classList.add('bgActive');
 
             if(cnt.id === '1'){
-                image.src = '../images/image.png'
+                image.src = '/images/image.png'
             }else if(cnt.id === '2'){
-                image.src = '../images/14.png';
+                image.src = '/images/14.png';
             }else if(cnt.id === '3'){
-                image.src = '../images/15.png'
+                image.src = '/images/15.png'
             }
         })
     })
